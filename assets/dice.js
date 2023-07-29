@@ -1,7 +1,12 @@
 var dice = {
-    sides: 20,
-    roll: function () {
-      var randomNumber = Math.floor(Math.random() * this.sides) + 1;
+    twsides: 20,
+    frsides: 4,
+    roll20: function () {
+      var randomNumber = Math.floor(Math.random() * this.twsides) + 1;
+      return randomNumber;
+    },
+    roll4: function () {
+      var randomNumber = Math.floor(Math.random() * this.frsides) + 1;
       return randomNumber;
     }
   }
@@ -15,9 +20,14 @@ var dice = {
     hexagon.innerHTML = number;
   }
   
-  var button = document.getElementById('button');
+  var button20 = document.getElementById('button20');
+  var button4 = document.getElementById('button4');
   
-  button.onclick = function() {
-    var result = dice.roll();
+  button20.onclick = function() {
+    var result = dice.roll20();
+    printNumber(result);
+  };
+  button4.onclick = function() {
+    var result = dice.roll4();
     printNumber(result);
   };
