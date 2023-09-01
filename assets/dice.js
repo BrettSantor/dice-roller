@@ -16,22 +16,15 @@ function rollAndPrint(sides) {
   printNumber(result);
 }
 
-var button20 = document.getElementById('button20');
-var button4 = document.getElementById('button4');
+var button20 = document.getElementById('d20');
+var button4 = document.getElementById('d4');
 
 button20.onclick = function() {
   rollAndPrint(20);
 };
 
 button4.onclick = function() {
+  console.log(button4.value)
   rollAndPrint(4);
 };
 
-buttonCustom.onclick = function() {
-  var customSides = parseInt(prompt('Enter the number of sides for the custom dice:'));
-  if (!isNaN(customSides)) {
-    rollAndPrint(customSides);
-  } else {
-    alert('Invalid input. Please enter a valid number of sides.');
-  }
-};
