@@ -1,33 +1,37 @@
-var dice = {
-    twsides: 20,
-    frsides: 4,
-    roll20: function () {
-      var randomNumber = Math.floor(Math.random() * this.twsides) + 1;
-      return randomNumber;
-    },
-    roll4: function () {
-      var randomNumber = Math.floor(Math.random() * this.frsides) + 1;
-      return randomNumber;
-    }
+
+  var dice = {
+  roll: function(sides) {
+    var randomNumber = Math.floor(Math.random() * sides) + 1;
+    return randomNumber;
   }
-  
-  
-  
-  //Prints dice roll to the page
-  
-  function printNumber(number) {
-    var placeholder = document.getElementById('hexagon');
-    hexagon.innerHTML = number;
+};
+
+function printNumber(number) {
+  var placeholder = document.getElementById('hexagon');
+  hexagon.innerHTML = number;
+}
+
+function rollAndPrint(sides) {
+  var result = dice.roll(sides);
+  printNumber(result);
+}
+
+var button20 = document.getElementById('button20');
+var button4 = document.getElementById('button4');
+
+button20.onclick = function() {
+  rollAndPrint(20);
+};
+
+button4.onclick = function() {
+  rollAndPrint(4);
+};
+
+buttonCustom.onclick = function() {
+  var customSides = parseInt(prompt('Enter the number of sides for the custom dice:'));
+  if (!isNaN(customSides)) {
+    rollAndPrint(customSides);
+  } else {
+    alert('Invalid input. Please enter a valid number of sides.');
   }
-  
-  var button20 = document.getElementById('button20');
-  var button4 = document.getElementById('button4');
-  
-  button20.onclick = function() {
-    var result = dice.roll20();
-    printNumber(result);
-  };
-  button4.onclick = function() {
-    var result = dice.roll4();
-    printNumber(result);
-  };
+};
