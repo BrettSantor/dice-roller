@@ -17,13 +17,13 @@ var dice = {
   }
 };
 
-function printNumber(result) {
+function printNumber(result, button) {
  const newDice = document.createElement('div');
- newDice.classList.add('dice');
+ newDice.classList.add('dice', ...button.classList);
 
  const resultDiv = document.createElement('div');
  resultDiv.classList.add('result');
- resultDiv.textContent = `Result: ${result}`;
+ resultDiv.textContent = result;
  newDice.appendChild(resultDiv);
 
  diceTray.appendChild(newDice);
@@ -35,15 +35,15 @@ if (typeof result === 'number'){
 
 };
 
-function rollAndPrint(sides) {
+function rollAndPrint(sides, button) {
   var result = dice.roll(sides);
-  printNumber(result);
+  printNumber(result, button);
 };
 
 diceButton.forEach(button => {
   button.addEventListener("click", function(){
     console.log(`d${button.value} was rolled`)
-    rollAndPrint(button.value)
+    rollAndPrint(button.value, button)
   });
 });
 

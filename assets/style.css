@@ -51,6 +51,7 @@ button {
   display: flex;
   justify-content: space-around;
   padding: 10px;
+  border: #82bab3 solid;
 }
 
 /* Style for the d4 button */
@@ -61,7 +62,8 @@ button {
   position: relative;
   width: 60px; /* Adjust the width as needed */
   height: 60px; /* Adjust the height as needed */
-  background-color:; /* Change the background color to match your design */
+  background-color:#82bab3; /* Change the background color to match your design */
+  color: rgb(255, 255, 255);
   border: none;
   border-radius: 5px; /* Adjust the radius as needed */
   cursor: pointer;
