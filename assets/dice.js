@@ -1,30 +1,38 @@
+const diceButton = document.querySelectorAll(".dice");
+const diceTray = document.querySelector("#dice-tray");
 
-  var dice = {
+var dice = {
   roll: function(sides) {
-    var randomNumber = Math.floor(Math.random() * sides) + 1;
-    return randomNumber;
+    if (sides == 2) {
+      var result = Math.random() < 0.5 ? "heads" : "tails";
+      return result;
+    } else {
+      var randomNumber = Math.floor(Math.random() * sides) + 1;
+      return randomNumber;
+    }
   }
 };
 
-function printNumber(number) {
-  var placeholder = document.getElementById('hexagon');
-  hexagon.innerHTML = number;
-}
+function printNumber(result) {
+ const newDice = document.createElement('div');
+ newDice.classList.add('dice');
+
+ const resultDiv = document.createElement('div');
+ resultDiv.classList.add('result');
+ resultDiv.textContent = `Result: ${result}`;
+ newDice.appendChild(resultDiv);
+
+ diceTray.appendChild(newDice);
+};
 
 function rollAndPrint(sides) {
   var result = dice.roll(sides);
   printNumber(result);
-}
-
-var button20 = document.getElementById('d20');
-var button4 = document.getElementById('d4');
-
-button20.onclick = function() {
-  rollAndPrint(20);
 };
 
-button4.onclick = function() {
-  console.log(button4.value)
-  rollAndPrint(4);
-};
-
+diceButton.forEach(button => {
+  button.addEventListener("click", function(){
+    console.log(`d${button.value} was rolled`)
+    rollAndPrint(button.value)
+  });
+});
