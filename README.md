@@ -6,7 +6,7 @@ A 20 sided dice roller for table top games such as Dungeons and Dragons
 
 ## Installation
 
-N/A
+https://brettsantor.github.io/dice-roller/
 
 ## Usage
 
