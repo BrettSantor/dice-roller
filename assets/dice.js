@@ -1,6 +1,9 @@
 const diceButton = document.querySelectorAll(".dice");
 const diceTray = document.querySelector("#dice-tray");
 const clearButton = document.getElementById('clearButton');
+const totalBox = document.getElementById('total-box');
+
+let total = 0;
 
 var dice = {
   roll: function(sides) {
@@ -24,6 +27,12 @@ function printNumber(result) {
  newDice.appendChild(resultDiv);
 
  diceTray.appendChild(newDice);
+
+if (typeof result === 'number'){
+  total += result;
+  totalBox.textContent = total
+}
+
 };
 
 function rollAndPrint(sides) {
@@ -45,5 +54,7 @@ clearButton.addEventListener('click', function() {
   // Remove all child elements (dice) from the dice tray
   while (diceTray.firstChild) {
       diceTray.removeChild(diceTray.firstChild);
+      total = 0;
+      totalBox.textContent = total
   }
 });
