@@ -8,7 +8,7 @@ let total = 0;
 var dice = {
   roll: function(sides) {
     if (sides == 2) {
-      var result = Math.random() < 0.5 ? "heads" : "tails";
+      var result = Math.random() < 0.5 ? "HEADS" : "TAILS";
       return result;
     } else {
       var randomNumber = Math.floor(Math.random() * sides) + 1;

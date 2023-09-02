@@ -62,7 +62,7 @@ button {
   position: relative;
   width: 60px; /* Adjust the width as needed */
   height: 60px; /* Adjust the height as needed */
-  background-color:#82bab3; /* Change the background color to match your design */
+  background-color:rgb(82, 186, 179); /* Change the background color to match your design */
   color: rgb(255, 255, 255);
   border: none;
   border-radius: 5px; /* Adjust the radius as needed */
@@ -79,6 +79,23 @@ button {
 
 /* Hover effect for the d4 button */
 .dice.d4:hover {
+  background-color: #82bab3; /* Change to the desired hover color */
+  color: white; /* Change text color on hover if needed */
+}
+
+.dice.coin {
+  position: relative;
+  height: 60px;
+  width: 60px;
+  background-color:rgb(82, 186, 179);
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 50%;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Hover effect for the coin button */
+.dice.coin:hover {
   background-color: #82bab3; /* Change to the desired hover color */
   color: white; /* Change text color on hover if needed */
 }
