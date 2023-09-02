@@ -54,3 +54,30 @@ button {
   padding: 10px;
 }
 
+/* Style for the d4 button */
+.dice.d4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 60px; /* Adjust the width as needed */
+  height: 60px; /* Adjust the height as needed */
+  background-color:; /* Change the background color to match your design */
+  border: none;
+  border-radius: 5px; /* Adjust the radius as needed */
+  cursor: pointer;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* Defines a triangle shape */
+  transition: background-color 0.3s, color 0.3s; /* Add a smooth transition effect */
+}
+
+/* Style for the text inside the button */
+.dice.d4 span {
+  position: relative;
+  z-index: 1; /* Place text above the triangle */
+}
+
+/* Hover effect for the d4 button */
+.dice.d4:hover {
+  background-color: #82bab3; /* Change to the desired hover color */
+  color: white; /* Change text color on hover if needed */
+}
