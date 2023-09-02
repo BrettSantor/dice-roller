@@ -1,5 +1,6 @@
 const diceButton = document.querySelectorAll(".dice");
 const diceTray = document.querySelector("#dice-tray");
+const clearButton = document.getElementById('clearButton');
 
 var dice = {
   roll: function(sides) {
@@ -35,4 +36,14 @@ diceButton.forEach(button => {
     console.log(`d${button.value} was rolled`)
     rollAndPrint(button.value)
   });
+});
+
+clearButton.addEventListener('click', function() {
+  // Select the dice tray
+  const diceTray = document.getElementById('dice-tray');
+
+  // Remove all child elements (dice) from the dice tray
+  while (diceTray.firstChild) {
+      diceTray.removeChild(diceTray.firstChild);
+  }
 });
