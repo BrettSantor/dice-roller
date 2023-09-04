@@ -55,11 +55,16 @@ button {
   border: #82bab3 solid;
 }
 
+.dice span {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 /* Style for the d4 button */
 .dice.d4 {
   display: flex;
-  align-items: center;
-  justify-content: center;
+
   position: relative;
   width: 60px; /* Adjust the width as needed */
   height: 60px; /* Adjust the height as needed */
@@ -74,10 +79,11 @@ button {
   transition: background-color 0.3s, color 0.3s; /* Add a smooth transition effect */
 }
 
-/* Style for the text inside the button */
+/* Style for the text inside the d4 button */
 .dice.d4 span {
   position: relative;
-  z-index: 1; /* Place text above the triangle */
+  top: 65%; /* Adjust the percentage to lower the number as needed */
+  transform: translateY(-50%);
 }
 
 /* Hover effect for the d4 button */
@@ -97,6 +103,7 @@ button {
   /* border-radius: 10px; Slightly round the corners */
   font-size: 24px; /* Adjust the font size for the number */
   text-align: center;
+  justify-content: center;
   line-height: 60px; /* Vertically center the number */
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s; /* Add a smooth transition effect */
