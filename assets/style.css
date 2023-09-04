@@ -19,10 +19,11 @@ body{
 }
 
 #dice-tray{
+  border: solid brown;
   flex-grow: 1;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -32,7 +33,6 @@ body{
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background-color: #dd8080;
 }
 
 button {
