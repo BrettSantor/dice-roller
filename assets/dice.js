@@ -3,6 +3,11 @@ const diceTray = document.querySelector("#dice-tray");
 const clearButton = document.getElementById('clearButton');
 const totalBox = document.getElementById('total-box');
 
+const vowels = "aeiou";
+const consonants = "bcdfghjklmnpqrstvwxyz";
+const syllables = ["ba", "zo", "ri", "qua", "bo", "lo", "ki", "mu", "ne", "te", "ve", "la", "ro", "ga", "ma", "pa", "co", "li", "nu", "ja", "mi", "si", "to", "le", "go", "wa", "ze", "vu", "ha", "ku", "fe", "yo", "xi", "do", "ru", "bi", "mo", "no", "ti", "ka", "pe", "si"];
+
+
 let total = 0;
 
 var dice = {
@@ -58,3 +63,24 @@ clearButton.addEventListener('click', function() {
       totalBox.textContent = total
   }
 });
+
+
+function generateRandomName() {
+  const nameLength = Math.floor(Math.random() * 3) + 2; // Random name length between 2 and 4 syllables
+  let randomName = "";
+
+  for (let i = 0; i < nameLength; i++) {
+    if (i === 0) {
+      // Start with a consonant for realism
+      randomName += consonants[Math.floor(Math.random() * consonants.length)];
+    } else if (i % 2 === 1) {
+      // Alternate vowels and consonants
+      randomName += vowels[Math.floor(Math.random() * vowels.length)];
+    } else {
+      // Randomly select from the defined syllables
+      randomName += syllables[Math.floor(Math.random() * syllables.length)];
+    }
+  }
+
+  return randomName;
+}
