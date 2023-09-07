@@ -66,7 +66,7 @@ clearButton.addEventListener('click', function() {
 
 
 function generateRandomName() {
-  const nameLength = Math.floor(Math.random() * 3) + 2; // Random name length between 2 and 4 syllables
+  const nameLength = Math.floor(Math.random() * 4) + 3; // Random name length between 2 and 4 syllables
   let randomName = "";
 
   for (let i = 0; i < nameLength; i++) {
@@ -84,3 +84,6 @@ function generateRandomName() {
 
   return randomName;
 }
+
+const randomness = generateRandomName()
+console.log(randomness)
