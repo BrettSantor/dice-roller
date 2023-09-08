@@ -7,7 +7,7 @@ const nameBox = document.getElementById('name')
 
 const vowels = "aeiou";
 const consonants = "bcdfghjklmnpqrstvwxyz";
-const syllables = ["ba", "zo", "ri", "qua", "bo", "lo", "ki", "mu", "ne", "te", "ve", "la", "ro", "ga", "ma", "pa", "co", "li", "nu", "ja", "mi", "si", "to", "le", "go", "wa", "ze", "vu", "ha", "ku", "fe", "yo", "xi", "do", "ru", "bi", "mo", "no", "ti", "ka", "pe", "si"];
+const syllables = ["ba", "zo", "ri", "qua", "bo", "lo", "ki", "mu", "ne", "te", "ve", "la", "ro", "ga", "ma", "pa", "co", "li", "nu", "ja", "mi", "poo", "si", "to", "le", "go", "wa", "ze", "vu", "ha", "ku", "fe", "yo", "xi","ski", "do", "ru", "bi", "mo", "no", "ti", "ka", "pe", "si", "meh"];
 
 
 let total = 0;

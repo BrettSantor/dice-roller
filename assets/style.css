@@ -15,7 +15,12 @@ body{
 }
 
 #total {
+  display: flex;
+  margin: 1%;
   width: 100vw;
+  flex-direction: row;
+  justify-content: space-around;
+
 }
 
 #table {
