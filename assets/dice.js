@@ -2,6 +2,8 @@ const diceButton = document.querySelectorAll(".dice");
 const diceTray = document.querySelector("#dice-tray");
 const clearButton = document.getElementById('clearButton');
 const totalBox = document.getElementById('total-box');
+const nameButton = document.getElementById('nameGenerator')
+const nameBox = document.getElementById('name')
 
 const vowels = "aeiou";
 const consonants = "bcdfghjklmnpqrstvwxyz";
@@ -35,7 +37,7 @@ function printNumber(result, button) {
 
 if (typeof result === 'number'){
   total += result;
-  totalBox.textContent = total
+  totalBox.textContent = `Total: ${total}`
 }
 
 };
@@ -85,5 +87,12 @@ function generateRandomName() {
   return randomName;
 }
 
-const randomness = generateRandomName()
+nameButton.addEventListener('click', function() {
+  
+  const randomness = generateRandomName()
+
+  nameBox.textContent = `Random Name: ${randomness}`
+ 
+});
+
 console.log(randomness)
