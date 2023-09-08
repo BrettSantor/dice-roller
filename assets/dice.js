@@ -26,7 +26,7 @@ function printNumber(result, button) {
  const newDice = document.createElement('div');
  newDice.classList.add('dice', ...button.classList);
 
- const resultDiv = document.createElement('div');
+ const resultDiv = document.createElement('span');
  resultDiv.classList.add('result');
  resultDiv.textContent = result;
  newDice.appendChild(resultDiv);
@@ -72,7 +72,7 @@ function generateRandomName() {
   for (let i = 0; i < nameLength; i++) {
     if (i === 0) {
       // Start with a consonant for realism
-      randomName += consonants[Math.floor(Math.random() * consonants.length)];
+      randomName += consonants[Math.floor(Math.random() * consonants.length)].toUpperCase();
     } else if (i % 2 === 1) {
       // Alternate vowels and consonants
       randomName += vowels[Math.floor(Math.random() * vowels.length)];
