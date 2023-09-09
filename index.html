@@ -7,9 +7,11 @@
   </head>
   <body>
       <header>
-          <h1>Let's Roll!</h1>
-          <button id="nameGenerator">GENERATE NAME</button>
-          <button id="clearButton">CLEAR DICE TRAY</button>
+          <h1 id="headline">Let's Roll!</h1>
+          <div id="headerButt"> 
+              <button id="nameGenerator">GENERATE NAME</button>
+              <button id="clearButton">CLEAR DICE TRAY</button>
+            </div>
         </header>
         <div id="total">
             <h3 id="name">Random Name:</h3>
@@ -23,7 +25,8 @@
             <button class="dice d10" value="10"><span>10</span></button>
             <button class="dice d12" value="12"><span>12</span></button>
             <button class="dice d20" value="20"><span>20</span></button>
-            <button class="dice coin heads-tails" value="2"><span>FLIP</span></button>
+            <div class="coin heads" value="2">
+            </div>
         </div>
         <div id="dice-tray"></div>
         

@@ -1,9 +1,20 @@
+//todo toggable color schemes for dice and dice box
+//todo .0000125 chance of coin changing to a different coin each flip
+//todo change color of text to green or red on crit success or failure
+//todo modal that shows the odds of rolls and the different possible coin faces
+//! give dice outlines to look more like dice
+//? text input for multiple dice per roll
+//?dice sounds
+
+
 const diceButton = document.querySelectorAll(".dice");
 const diceTray = document.querySelector("#dice-tray");
 const clearButton = document.getElementById('clearButton');
 const totalBox = document.getElementById('total-box');
 const nameButton = document.getElementById('nameGenerator')
 const nameBox = document.getElementById('name')
+const coinImage = document.querySelector('.coin');
+let isCoinShiny = false
 
 const vowels = "aeiou";
 const consonants = "bcdfghjklmnpqrstvwxyz";
@@ -15,8 +26,20 @@ let total = 0;
 var dice = {
   roll: function(sides) {
     if (sides == 2) {
-      var result = Math.random() < 0.5 ? "HEADS" : "TAILS";
-      return result;
+      const shouldBecomeShiny = Math.random() < 0.0244;
+
+      if (shouldBecomeShiny) {
+        isCoinShiny = true;
+        coinImage.classList.add('shiny');
+      } else {
+        isCoinShiny = false;
+        coinImage.classList.remove('shiny');
+      }
+
+      var result = Math.random() < 0.5 ? "heads" : "tails";
+      console.log(result)
+      coinImage.classList.remove("heads", "tails");
+      coinImage.classList.add( result);
     } else {
       var randomNumber = Math.floor(Math.random() * sides) + 1;
       return randomNumber;
@@ -26,7 +49,15 @@ var dice = {
 
 function printNumber(result, button) {
  const newDice = document.createElement('div');
- newDice.classList.add('dice', ...button.classList);
+ if(!button.classList.contains('coin')) {
+   
+   newDice.classList.add('dice', ...button.classList);
+ } else if(button.classList.contains('coin') && isCoinShiny) {
+  newDice.classList.add('shiny', 'coin', ...button.classList)
+ } else {
+  newDice.classList.add('coin', ...button.classList)
+ };
+
 
  const resultDiv = document.createElement('span');
  resultDiv.classList.add('result');
@@ -48,8 +79,9 @@ function rollAndPrint(sides, button) {
 };
 
 diceButton.forEach(button => {
-  button.addEventListener("click", function(){
-    console.log(`d${button.value} was rolled`)
+  button.addEventListener("click", function(e){
+    console.log('this is for buttons only!')
+    e.stopPropagation();
     rollAndPrint(button.value, button)
   });
 });
@@ -62,9 +94,15 @@ clearButton.addEventListener('click', function() {
   while (diceTray.firstChild) {
       diceTray.removeChild(diceTray.firstChild);
       total = 0;
-      totalBox.textContent = total
+      totalBox.textContent = `Total: ${total}`
   }
 });
+
+coinImage.addEventListener('click', function(e) {
+  console.log(coinImage)
+  e.stopPropagation();
+  rollAndPrint(2, coinImage)
+})
 
 
 function generateRandomName() {
@@ -94,5 +132,3 @@ nameButton.addEventListener('click', function() {
   nameBox.textContent = `Random Name: ${randomness}`
  
 });
-
-console.log(randomness)
