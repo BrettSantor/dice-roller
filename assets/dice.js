@@ -116,21 +116,16 @@ multiDice.addEventListener("click", function(e){
 multiDice.addEventListener("mouseover", function () {
   const randomColor = "#" + ((Math.random() * 0xffffff) << 0).toString(16);
 
-  const style = document.createElement("style");
+  // Apply the random color to the glow effect
+  this.style.setProperty("--glow-color", randomColor);
 
-  style.innerHTML = `
-    #multiDice {
-      box-shadow: 0 0 10px ${randomColor};
-    }
-  `;
-  document.head.appendChild(style);
+  // Add a class to apply the glow effect
+  this.classList.add("glow");
 });
 
 multiDice.addEventListener("mouseout", function () {
-  const style = document.querySelector("style");
-  if (style) {
-    style.remove();
-  }
+  // Remove the class to remove the glow effect
+  this.classList.remove("glow");
 });
 
 closeModal.addEventListener("click", function(e){
