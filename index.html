@@ -16,7 +16,14 @@
         <div id="diceModal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
-                <h2>How many dice would you like to roll?</h2>
+                <h2>So Many Dice!</h2>
+                <label for="diceCount">Number of dice:</label>
+                <input type="number" id="diceCount" min="1" value="1">
+                <br>
+                <label for="sides">Number of Sides:</label>
+                <input type="number" id="sides" min="2" value="1">
+                <br>
+                <button id="rollDiceButt">Roll</button>
             </div>
         </div>
         <div id="total">
@@ -25,7 +32,7 @@
         </div>
     <div id="table">
         <div id="dice-bag">
-            <button class="multiDice">&#43;</button>
+            <span id="multiDice">&#43;</span>
             <button class="dice d4" value="4"><span>4</span></button>
             <button class="dice d6" value="6"><span>6</span></button>
             <button class="dice d8" value="8"><span>8</span></button>

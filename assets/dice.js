@@ -13,6 +13,10 @@ const totalBox = document.getElementById('total-box');
 const nameButton = document.getElementById('nameGenerator')
 const nameBox = document.getElementById('name')
 const coinImage = document.querySelector('.coin');
+const diceModal = document.getElementById('diceModal');
+const multiDice = document.getElementById('multiDice');
+const closeModal = document.querySelector(".close")
+
 let isCoinShiny = false
 
 const vowels = "aeiou";
@@ -39,6 +43,7 @@ var dice = {
       console.log(result)
       coinImage.classList.remove("heads", "tails");
       coinImage.classList.add( result);
+      return result;
     } else {
       var randomNumber = Math.floor(Math.random() * sides) + 1;
       return randomNumber;
@@ -57,11 +62,12 @@ function printNumber(result, button) {
   newDice.classList.add('coin', ...button.classList)
  };
 
-
+if(!button.classList.contains('coin')) {
  const resultDiv = document.createElement('span');
  resultDiv.classList.add('result');
  resultDiv.textContent = result;
  newDice.appendChild(resultDiv);
+}
 
  diceTray.appendChild(newDice);
 
@@ -98,10 +104,70 @@ clearButton.addEventListener('click', function() {
 });
 
 coinImage.addEventListener('click', function(e) {
-  console.log(coinImage)
   e.stopPropagation();
   rollAndPrint(2, coinImage)
-})
+});
+
+multiDice.addEventListener("click", function(e){
+  e.stopPropagation();
+  diceModal.style.display = "block";
+});
+
+multiDice.addEventListener("mouseover", function () {
+  const randomColor = "#" + ((Math.random() * 0xffffff) << 0).toString(16);
+
+  const style = document.createElement("style");
+
+  style.innerHTML = `
+    #multiDice {
+      box-shadow: 0 0 10px ${randomColor};
+    }
+  `;
+  document.head.appendChild(style);
+});
+
+multiDice.addEventListener("mouseout", function () {
+  const style = document.querySelector("style");
+  if (style) {
+    style.remove();
+  }
+});
+
+closeModal.addEventListener("click", function(e){
+  e.stopPropagation();
+  diceModal.style.display = "none";
+});
+
+window.addEventListener("click", function(event){
+  if (event.target === diceModal) {
+    diceModal.style.display = "none";
+  }
+});
+
+document.getElementById("rollDiceButt").addEventListener("click", function(){
+  const diceCount = document.getElementById("diceCount").value ;
+  const sides = document.getElementById("sides").value;
+
+  if (!isNaN(diceCount) && !isNaN(sides) && diceCount > 0 && sides >= 2){
+    for (let i = 0; i < diceCount; i++) {
+      const result = dice.roll(sides);
+      const newDice = document.createElement('div');
+      if (sides == 2) {
+        if (result === "heads") {
+          newDice.classList.add('coin', 'heads');
+        } else {
+          newDice.classList.add('coin', 'tails');
+        }
+      } else {
+        newDice.classList.add('dice', `d${sides}`);
+      }
+      printNumber(result, newDice);
+    }
+  } else {
+    alert("Please enter at least 1 dice of at least 2 sides");
+  }
+  diceModal.style.display = "none";
+});
 
 
 function generateRandomName() {
