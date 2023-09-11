@@ -1,9 +1,8 @@
 //todo toggable color schemes for dice and dice box
-//todo .0000125 chance of coin changing to a different coin each flip
 //todo change color of text to green or red on crit success or failure
 //todo modal that shows the odds of rolls and the different possible coin faces
 //! give dice outlines to look more like dice
-//? text input for multiple dice per roll
+//todo modal for text input for multiple dice per roll
 //?dice sounds
 
 
