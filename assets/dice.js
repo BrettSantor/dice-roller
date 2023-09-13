@@ -142,6 +142,11 @@ document.getElementById("rollDiceButt").addEventListener("click", function(){
   const positiveModifier = parseInt(document.getElementById("positiveModifier").value) || 0;
   const negativeModifier = parseInt(document.getElementById("negativeModifier").value) || 0;
 
+  if (negativeModifier < -999 || negativeModifier > 999 || positiveModifier < -999 || positiveModifier > 999) {
+    alert("Please enter a modifier between -999 and 999");
+    return;
+  }
+
   if (!isNaN(diceCount) && !isNaN(sides) && diceCount > 0 && diceCount < 1000 && sides >= 2){
     for (let i = 0; i < diceCount; i++) {
       const originalResult = dice.roll(sides);
