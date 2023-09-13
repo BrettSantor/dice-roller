@@ -3,7 +3,6 @@
 //todo advantage and disadvantage rolls
 //todo modal that shows the odds of rolls and the different possible coin faces
 //! give dice outlines to look more like dice
-//todo modal for text input for multiple dice per roll
 //?dice sounds
 
 
@@ -62,6 +61,14 @@ function printNumber(result, button) {
  } else {
   newDice.classList.add('coin', ...button.classList)
  };
+
+ if (!button.classList.contains('coin') && (result === 1)) {
+  newDice.classList.add('critFail');
+}
+
+if (!button.classList.contains('coin') && (result === button.value)) {
+  newDice.classList.add('critSuccess');
+}
 
 if(!button.classList.contains('coin')) {
  const resultDiv = document.createElement('span');
@@ -145,21 +152,43 @@ window.addEventListener("click", function(event){
 document.getElementById("rollDiceButt").addEventListener("click", function(){
   const diceCount = document.getElementById("diceCount").value ;
   const sides = document.getElementById("sides").value;
+  const positiveModifier = parseInt(document.getElementById("positiveModifier").value) || 0;
+  const negativeModifier = parseInt(document.getElementById("negativeModifier").value) || 0;
 
   if (!isNaN(diceCount) && !isNaN(sides) && diceCount > 0 && diceCount < 1000 && sides >= 2){
     for (let i = 0; i < diceCount; i++) {
-      const result = dice.roll(sides);
+      const originalResult = dice.roll(sides);
+      let modifiedResult = originalResult;
       const newDice = document.createElement('div');
+
+      console.log(originalResult)
+
+      if (!newDice.classList.contains('coin') && (originalResult === 1)) {
+        newDice.classList.add('critFail');
+      }
+      
+      const successRange = 0.0001; // Adjust this value as needed
+      if (!newDice.classList.contains('coin') && (originalResult >= sides - successRange)) {
+        newDice.classList.add('critSuccess');
+      }
+
+      if (i === 0) {
+        // Apply the modifier only to the first roll
+        modifiedResult += positiveModifier;
+        modifiedResult -= negativeModifier;
+      }
+
       if (sides == 2) {
-        if (result === "heads") {
-          newDice.classList.add('coin', 'heads');
-        } else {
-          newDice.classList.add('coin', 'tails');
-        }
+        const coinResult = originalResult === "heads" ? "coin heads" : "coin tails";
+        const newDice = document.createElement('div');
+        newDice.classList.add(coinResult);
       } else {
         newDice.classList.add('dice', `d${sides}`);
+        // modifiedResult += positiveModifier;
+        // modifiedResult -= negativeModifier;
       }
-      printNumber(result, newDice);
+      console.log(modifiedResult)
+      printNumber(modifiedResult, newDice);
     }
   } else {
     alert("Please enter an amount of dice between 1-999 and of at least 2 sides");

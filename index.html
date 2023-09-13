@@ -17,12 +17,23 @@
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <h2>So Many Dice!</h2>
-                <label for="diceCount">Number of dice:</label>
-                <input type="number" id="diceCount" min="1" value="1">
-                <br>
-                <label for="sides">Number of Sides:</label>
-                <input type="number" id="sides" min="2" value="1">
-                <br>
+                <div class="input-group">
+                    <label for="diceCount">Number of dice:</label>
+                    <input type="number" id="diceCount" min="1" value="1">
+                  </div>
+                  <div class="input-group">
+                    <label for="sides">Number of Sides:</label>
+                    <input type="number" id="sides" min="2" value="1">
+                  </div>
+                  <h3>Modifiers</h3>
+                  <div class="input-group">
+                    <label for="positiveModifier">+</label>
+                    <input type="number" id="positiveModifier">
+                  </div>
+                  <div class="input-group">
+                    <label for="negativeModifier">-</label>
+                    <input type="number" id="negativeModifier">
+                  </div>
                 <button id="rollDiceButt">Roll</button>
             </div>
         </div>
