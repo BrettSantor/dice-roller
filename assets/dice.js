@@ -1,5 +1,4 @@
 //todo toggable color schemes for dice and dice box
-//todo change color of text to green or red on crit success or failure
 //todo advantage and disadvantage rolls
 //todo modal that shows the odds of rolls and the different possible coin faces
 //! give dice outlines to look more like dice

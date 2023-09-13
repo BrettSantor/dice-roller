@@ -9,9 +9,9 @@
 body{
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
-  padding: 1%;
+  padding: 0;
 }
 
 #headline {
@@ -28,7 +28,7 @@ body{
 
 #total {
   display: flex;
-  margin: 1%;
+  margin: 0;
   width: 100vw;
   flex-direction: row;
   justify-content: space-around;
@@ -38,7 +38,7 @@ body{
 #table {
   display: flex;
   flex-grow: 1;
-  height: 100vh;
+  min-height: 0;
   overflow-x: hidden;
 }
 
