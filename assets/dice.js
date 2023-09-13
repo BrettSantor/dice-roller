@@ -181,7 +181,7 @@ document.getElementById("rollDiceButt").addEventListener("click", function(){
       printNumber(modifiedResult, newDice);
     }
   } else {
-    alert("Please enter an amount of dice between 1-999 and of at least 2 sides");
+    alert("Please enter an amount of dice between 1-999");
   }
   diceModal.style.display = "none";
 });
