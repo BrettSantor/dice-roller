@@ -56,6 +56,7 @@ body{
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
+  max-height: 80vh;
   overflow-y: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -99,6 +100,16 @@ button {
 
 }
 
+button:hover {
+  background-color: #83e9e2;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+button:active {
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  transform: translateY(2px);
+}
+
 #dice-tray .dice {
   display: flex;
   align-items: center;
@@ -114,6 +125,10 @@ button {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+
+.coin:hover {
+  box-shadow: 6px 4px 4px rgba(0, 0, 0, 0.4);
 }
 
 /* Common styles for dice buttons */
@@ -241,6 +256,12 @@ color: green;
   justify-content: center;
   cursor: pointer;
   transition: filter 0.6s;
+}
+
+#multiDice:hover {
+  width: 101px;
+  height: 101px;
+  filter: drop-shadow(0 0 20px rgb(0, 0, 0, 1));
 }
 
 .modal {

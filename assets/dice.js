@@ -65,7 +65,8 @@ function printNumber(result, button) {
   newDice.classList.add('critFail');
 }
 
-if (!button.classList.contains('coin') && (result === button.value)) {
+const successRange = 0.0001;
+if (!button.classList.contains('coin') && (result >= button.value - successRange)) {
   newDice.classList.add('critSuccess');
 }
 
@@ -122,21 +123,6 @@ multiDice.addEventListener("click", function(e){
   diceModal.style.display = "block";
 });
 
-// multiDice.addEventListener("mouseover", function () {
-//   const randomColor = "#" + ((Math.random() * 0xffffff) << 0).toString(16);
-
-//   // Apply the random color to the glow effect
-//   this.style.setProperty("--glow-color", randomColor);
-
-//   // Add a class to apply the glow effect
-//   this.classList.add("glow");
-// });
-
-// multiDice.addEventListener("mouseout", function () {
-//   // Remove the class to remove the glow effect
-//   this.classList.remove("glow");
-// });
-
 closeModal.addEventListener("click", function(e){
   e.stopPropagation();
   diceModal.style.display = "none";
@@ -166,7 +152,7 @@ document.getElementById("rollDiceButt").addEventListener("click", function(){
         newDice.classList.add('critFail');
       }
       
-      const successRange = 0.0001; // Adjust this value as needed
+      const successRange = 0.0001;
       if (!newDice.classList.contains('coin') && (originalResult >= sides - successRange)) {
         newDice.classList.add('critSuccess');
       }
