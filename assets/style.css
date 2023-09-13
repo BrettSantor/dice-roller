@@ -224,6 +224,10 @@ color: green;
   background-image: url('images/shinyTail.png');
 }
 
+.modifierApplied {
+  color: orange;
+}
+
 #multiDice {
   display: flex;
   position: relative;

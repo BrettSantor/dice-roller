@@ -175,6 +175,10 @@ document.getElementById("rollDiceButt").addEventListener("click", function(){
         // Apply the modifier only to the first roll
         modifiedResult += positiveModifier;
         modifiedResult -= negativeModifier;
+
+        if (positiveModifier > 0 || negativeModifier > 0) {
+          newDice.classList.add('modifierApplied');
+        }
       }
 
       if (sides == 2) {
