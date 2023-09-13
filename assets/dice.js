@@ -1,6 +1,8 @@
 //todo toggable color schemes for dice and dice box
 //todo advantage and disadvantage rolls
 //todo modal that shows the odds of rolls and the different possible coin faces
+//! change dice sides from input to drop down
+//! cap the amount of modifiers
 //! give dice outlines to look more like dice
 //?dice sounds
 
@@ -79,7 +81,7 @@ if(!button.classList.contains('coin')) {
 
  diceTray.appendChild(newDice);
 
-if (typeof result === 'number'){
+if (!isNaN(result)){
   total += result;
   totalBox.textContent = `Total: ${total}`
 }
@@ -168,9 +170,8 @@ document.getElementById("rollDiceButt").addEventListener("click", function(){
       }
 
       if (sides == 2) {
-        const coinResult = originalResult === "heads" ? "coin heads" : "coin tails";
-        const newDice = document.createElement('div');
-        newDice.classList.add(coinResult);
+        const coinResult = originalResult === "heads" ? "heads" : "tails";
+        newDice.classList.add('coin', coinResult);
       } else {
         newDice.classList.add('dice', `d${sides}`);
         // modifiedResult += positiveModifier;
