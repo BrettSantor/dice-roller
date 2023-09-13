@@ -1,5 +1,6 @@
 //todo toggable color schemes for dice and dice box
 //todo change color of text to green or red on crit success or failure
+//todo advantage and disadvantage rolls
 //todo modal that shows the odds of rolls and the different possible coin faces
 //! give dice outlines to look more like dice
 //todo modal for text input for multiple dice per roll
@@ -29,7 +30,7 @@ let total = 0;
 var dice = {
   roll: function(sides) {
     if (sides == 2) {
-      const shouldBecomeShiny = Math.random() < 0.0244;
+      const shouldBecomeShiny = Math.random() < 0.00244;
 
       if (shouldBecomeShiny) {
         isCoinShiny = true;
@@ -76,6 +77,8 @@ if (typeof result === 'number'){
   totalBox.textContent = `Total: ${total}`
 }
 
+diceTray.scrollTop = diceTray.scrollHeight;
+
 };
 
 function rollAndPrint(sides, button) {
@@ -113,20 +116,20 @@ multiDice.addEventListener("click", function(e){
   diceModal.style.display = "block";
 });
 
-multiDice.addEventListener("mouseover", function () {
-  const randomColor = "#" + ((Math.random() * 0xffffff) << 0).toString(16);
+// multiDice.addEventListener("mouseover", function () {
+//   const randomColor = "#" + ((Math.random() * 0xffffff) << 0).toString(16);
 
-  // Apply the random color to the glow effect
-  this.style.setProperty("--glow-color", randomColor);
+//   // Apply the random color to the glow effect
+//   this.style.setProperty("--glow-color", randomColor);
 
-  // Add a class to apply the glow effect
-  this.classList.add("glow");
-});
+//   // Add a class to apply the glow effect
+//   this.classList.add("glow");
+// });
 
-multiDice.addEventListener("mouseout", function () {
-  // Remove the class to remove the glow effect
-  this.classList.remove("glow");
-});
+// multiDice.addEventListener("mouseout", function () {
+//   // Remove the class to remove the glow effect
+//   this.classList.remove("glow");
+// });
 
 closeModal.addEventListener("click", function(e){
   e.stopPropagation();
@@ -143,7 +146,7 @@ document.getElementById("rollDiceButt").addEventListener("click", function(){
   const diceCount = document.getElementById("diceCount").value ;
   const sides = document.getElementById("sides").value;
 
-  if (!isNaN(diceCount) && !isNaN(sides) && diceCount > 0 && sides >= 2){
+  if (!isNaN(diceCount) && !isNaN(sides) && diceCount > 0 && diceCount < 1000 && sides >= 2){
     for (let i = 0; i < diceCount; i++) {
       const result = dice.roll(sides);
       const newDice = document.createElement('div');
@@ -159,7 +162,7 @@ document.getElementById("rollDiceButt").addEventListener("click", function(){
       printNumber(result, newDice);
     }
   } else {
-    alert("Please enter at least 1 dice of at least 2 sides");
+    alert("Please enter an amount of dice between 1-999 and of at least 2 sides");
   }
   diceModal.style.display = "none";
 });
