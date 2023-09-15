@@ -179,8 +179,6 @@ document.getElementById("rollDiceButt").addEventListener("click", function(){
         newDice.classList.add('coin', coinResult);
       } else {
         newDice.classList.add('dice', `d${sides}`);
-        // modifiedResult += positiveModifier;
-        // modifiedResult -= negativeModifier;
       }
       console.log(modifiedResult)
       printNumber(modifiedResult, newDice);

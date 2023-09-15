@@ -217,18 +217,18 @@ color: green;
 
 .heads {
    background-image: url("images/quarter.png");
-   background-size: 100% !important;
-   background-position: center !important;
-   background-repeat: no-repeat !important;
-   border-radius: 50% !important;
+   background-size: 100% ;
+   background-position: center ;
+   background-repeat: no-repeat ;
+   border-radius: 50% ;
 }
 
 .tails {
   background-image: url("images/quarterTails.png");
-  background-size: 100% !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  border-radius: 50% !important;
+  background-size: 100% ;
+  background-position: center ;
+  background-repeat: no-repeat ;
+  border-radius: 50% ;
 }
 
 .coin.heads.shiny {
@@ -240,7 +240,7 @@ color: green;
 }
 
 .modifierApplied {
-  color: orange;
+  color: orange !important;
 }
 
 #multiDice {
