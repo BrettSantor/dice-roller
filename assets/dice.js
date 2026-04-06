@@ -17,12 +17,24 @@ const coinImage = document.querySelector('.coin');
 const diceModal = document.getElementById('diceModal');
 const multiDice = document.getElementById('multiDice');
 const closeModal = document.querySelector(".close")
+const singleDiceSound = new Audio("./assets/audio/singleDice.mp3");
+const multiDiceSound = new Audio("./assets/audio/multiDice.mp3");
+const coinSound = new Audio("./assets/audio/coinFlip.mp3");
 
 let isCoinShiny = false
 
 const vowels = "aeiou";
 const consonants = "bcdfghjklmnpqrstvwxyz";
 const syllables = ["ba", "zo", "ri", "qua", "bo", "lo", "ki", "mu", "ne", "te", "ve", "la", "ro", "ga", "ma", "pa", "co", "li", "nu", "ja", "mi", "poo", "si", "to", "le", "go", "wa", "ze", "vu", "ha", "ku", "fe", "yo", "xi","ski", "do", "ru", "bi", "mo", "no", "ti", "ka", "pe", "si", "meh"];
+
+// diceButton.forEach(dice => {
+//   dice.addEventListener("click", () => {
+    
+//     console.log("sound is trying");
+//   })
+
+  
+// })
 
 
 let total = 0;
@@ -98,6 +110,7 @@ function rollAndPrint(sides, button) {
 diceButton.forEach(button => {
   button.addEventListener("click", function(e){
     console.log('this is for buttons only!')
+    singleDiceSound.play();
     e.stopPropagation();
     rollAndPrint(button.value, button)
   });
@@ -117,6 +130,7 @@ clearButton.addEventListener('click', function() {
 
 coinImage.addEventListener('click', function(e) {
   e.stopPropagation();
+  coinSound.play();
   rollAndPrint(2, coinImage)
 });
 
@@ -180,7 +194,8 @@ document.getElementById("rollDiceButt").addEventListener("click", function(){
       } else {
         newDice.classList.add('dice', `d${sides}`);
       }
-      console.log(modifiedResult)
+      console.log(modifiedResult);
+      multiDiceSound.play();
       printNumber(modifiedResult, newDice);
     }
   } else {
