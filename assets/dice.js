@@ -20,6 +20,7 @@ const closeModal = document.querySelector(".close")
 const singleDiceSound = new Audio("./assets/audio/singleDice.mp3");
 const multiDiceSound = new Audio("./assets/audio/multiDice.mp3");
 const coinSound = new Audio("./assets/audio/coinFlip.mp3");
+const multiCoinSound = new Audio("./assets/audio/multiCoin.mp3");
 
 let isCoinShiny = false
 
@@ -191,11 +192,12 @@ document.getElementById("rollDiceButt").addEventListener("click", function(){
       if (sides == 2) {
         const coinResult = originalResult === "heads" ? "heads" : "tails";
         newDice.classList.add('coin', coinResult);
+        multiCoinSound.play();
       } else {
         newDice.classList.add('dice', `d${sides}`);
+        multiDiceSound.play();
       }
       console.log(modifiedResult);
-      multiDiceSound.play();
       printNumber(modifiedResult, newDice);
     }
   } else {
