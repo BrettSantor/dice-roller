@@ -4,7 +4,6 @@
 //! change dice sides from input to drop down
 //! cap the amount of modifiers
 //! give dice outlines to look more like dice
-//?dice sounds
 
 
 const diceButton = document.querySelectorAll(".dice");

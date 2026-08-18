@@ -196,6 +196,16 @@ color: rgb(255, 255, 255);
   clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0% 50%);
 }
 
+.dice.d100 {
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0% 50%);
+  background-image: radial-gradient(
+    circle at center,
+    #ba5252 35%, 
+    #5a6e6e,
+    #0a1111
+  );
+}
+
 /* Style for the d12 button with a decagon shape */
 .dice.d12 {
   clip-path: polygon(50% 0%, 80% 10%, 100% 35%, 100% 70%, 80% 90%, 50% 100%, 20% 90%, 0% 70%, 0% 35%, 20% 10%);
